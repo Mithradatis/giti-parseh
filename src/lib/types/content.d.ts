@@ -1,4 +1,4 @@
 interface ContentBlock {
-    type: string;
-    children: { text: string }[];
+  type: string
+  children: { text: string }[]
 }

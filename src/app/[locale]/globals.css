@@ -4,24 +4,27 @@
 
 @font-face {
   font-family: 'Vanda-Regular';
-  src: url('/assets/fonts/fa/vanda/woff2/VandaFAnum-Regular.woff2') format('woff2'),
-       url('/assets/fonts/fa/vanda/woff/VandaFAnum-Regular.woff') format('woff');
+  src:
+    url('/assets/fonts/fa/vanda/woff2/VandaFAnum-Regular.woff2') format('woff2'),
+    url('/assets/fonts/fa/vanda/woff/VandaFAnum-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Vanda-Bold';
-  src: url('/assets/fonts/fa/vanda/woff2/VandaFAnum-Bold.woff2') format('woff2'),
-       url('/assets/fonts/fa/vanda/woff/VandaFAnum-Bold.woff') format('woff');
+  src:
+    url('/assets/fonts/fa/vanda/woff2/VandaFAnum-Bold.woff2') format('woff2'),
+    url('/assets/fonts/fa/vanda/woff/VandaFAnum-Bold.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Vanda-Light';
-  src: url('/assets/fonts/fa/vanda/woff2/VandaFAnum-Light.woff2') format('woff2'),
-       url('/assets/fonts/fa/vanda/woff/VandaFAnum-Light.woff') format('woff');
+  src:
+    url('/assets/fonts/fa/vanda/woff2/VandaFAnum-Light.woff2') format('woff2'),
+    url('/assets/fonts/fa/vanda/woff/VandaFAnum-Light.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -79,7 +82,7 @@
   body[dir='rtl'] .text-3xl {
     font-size: 2.25rem;
   }
-  
+
   body[dir='rtl'] .font-bold {
     font-family: 'Vanda-Bold', sans-serif;
   }

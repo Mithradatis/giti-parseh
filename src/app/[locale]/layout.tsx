@@ -10,31 +10,27 @@ import './globals.css'
 export const metadata: Metadata = {
   title: process.env.APP_TITLE,
   description: process.env.APP_DESCRIPTION,
-};
+}
 
 export default async function RootLayout({
   children,
-  params
+  params,
 }: Readonly<{
-  children: React.ReactNode;
-  params: { locale: string };
+  children: React.ReactNode
+  params: { locale: string }
 }>) {
-  const locale = params?.locale || 'en';
-  const translation = await fetchTranslations(locale);
+  const locale = params?.locale || 'en'
+  const translation = await fetchTranslations(locale)
 
   return (
     <html lang="en">
-      <body dir={ locale !== 'fa' ? 'ltr' : 'rtl' }>
-        <Header locale={locale} trans={translation}/>
+      <body dir={locale !== 'fa' ? 'ltr' : 'rtl'}>
+        <Header locale={locale} trans={translation} />
         <main className="flex min-h-screen flex-col items-center justify-between">
-          <div className={"w-full"}>
-            {
-              children
-            }
-          </div>
+          <div className={'w-full'}>{children}</div>
         </main>
-        <Footer locale={locale} trans={translation}/>
+        <Footer locale={locale} trans={translation} />
       </body>
     </html>
-  );
+  )
 }
