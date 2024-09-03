@@ -13,7 +13,7 @@ export const ImagesSlider = ({
   autoplay = true,
   direction = 'up',
 }: {
-  images: string[]
+  images: HeroSliderImage[]
   children: React.ReactNode
   overlay?: React.ReactNode
   overlayClassName?: string
@@ -23,7 +23,7 @@ export const ImagesSlider = ({
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [loading, setLoading] = useState(false)
-  const [loadedImages, setLoadedImages] = useState<string[]>([])
+  const [loadedImages, setLoadedImages] = useState<HeroSliderImage[]>([])
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1 === images.length ? 0 : prevIndex + 1))
@@ -42,7 +42,8 @@ export const ImagesSlider = ({
     const loadPromises = images.map((image) => {
       return new Promise((resolve, reject) => {
         const img = new Image()
-        img.src = image
+        img.src = image.src
+        img.alt = image.alt
         img.onload = () => resolve(image)
         img.onerror = reject
       })
@@ -50,7 +51,7 @@ export const ImagesSlider = ({
 
     Promise.all(loadPromises)
       .then((loadedImages) => {
-        setLoadedImages(loadedImages as string[])
+        setLoadedImages(loadedImages as HeroSliderImage[])
         setLoading(false)
       })
       .catch((error) => console.error('Failed to load images', error))
@@ -116,12 +117,9 @@ export const ImagesSlider = ({
   return (
     <div
       className={cn(
-        'overflow-hidden h-full w-full relative flex items-center justify-center',
+        'overflow-hidden h-full w-full relative flex items-center justify-center perspective-1000',
         className
       )}
-      style={{
-        perspective: '1000px',
-      }}
     >
       {areImagesLoaded && children}
       {areImagesLoaded && overlay && (
@@ -132,8 +130,8 @@ export const ImagesSlider = ({
         <AnimatePresence>
           <motion.img
             key={currentIndex}
-            src={loadedImages[currentIndex]}
-            alt={'test'}
+            src={loadedImages[currentIndex].src}
+            alt={loadedImages[currentIndex].alt}
             initial="initial"
             animate="visible"
             exit={direction === 'up' ? 'upExit' : 'downExit'}

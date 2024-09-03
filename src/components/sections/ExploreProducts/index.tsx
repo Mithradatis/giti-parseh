@@ -1,6 +1,5 @@
-import Image from 'next/image'
+import OptimizedImage from '@/components/elements/OptimizedImage'
 import Link from 'next/link'
-import { HoverEffect } from '@/components/ui/card-hover-effect'
 
 const ExploreProduct = ({
   content,
@@ -25,15 +24,16 @@ const ExploreProduct = ({
             key={item.id}
             href={`${locale}/products/${item.attributes.slug}`}
             className={'group w-full'}
+            aria-label={item.attributes.title}
           >
             <div key={index} className="relative w-full overflow-hidden">
-              <Image
+              <OptimizedImage
                 className={'rounded-2xl w-full'}
                 quality={100}
                 width={250}
                 height={250}
                 src={`${process.env.API_URL}${item.attributes.image.data.attributes.url}`}
-                alt={item.attributes.title}
+                alt={item.attributes.alt ? item.attributes.alt : item.attributes.title}
               />
               <h4 className={'text-xl pt-2'}>{item.attributes.title}</h4>
             </div>

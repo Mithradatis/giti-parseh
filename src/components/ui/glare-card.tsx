@@ -65,7 +65,6 @@ export const GlareCard = ({
   }
   return (
     <div
-      style={containerStyle}
       className="relative group transition-all cursor-pointer isolate [contain:layout_style] [perspective:600px] duration-[var(--duration)] ease-[var(--easing)] delay-[var(--delay)] will-change-transform md:w-[320px] w-full [aspect-ratio:16/16]"
       ref={refElement}
       onPointerMove={(event) => {
@@ -99,11 +98,12 @@ export const GlareCard = ({
       onPointerEnter={() => {
         isPointerInside.current = true
         if (refElement.current) {
-          setTimeout(() => {
+          const timeoutFunc = () => {
             if (isPointerInside.current) {
               refElement.current?.style.setProperty('--duration', '0s')
             }
-          }, 300)
+          }
+          setTimeout(timeoutFunc, 300)
         }
       }}
       onPointerLeave={() => {

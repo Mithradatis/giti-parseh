@@ -11,7 +11,7 @@ import { useRef } from 'react'
 import { cn } from '@/lib/utils'
 
 export function Button({
-  borderRadius = '1.75rem',
+  borderRadius = 'lg',
   children,
   as: Component = 'button',
   containerClassName,
@@ -32,15 +32,12 @@ export function Button({
   return (
     <Component
       className={cn(
-        'bg-transparent relative text-xl  h-16 w-40 p-[1px] overflow-hidden ',
+        `bg-transparent relative text-xl h-16 w-40 p-[1px] overflow-hidden rounded-${borderRadius} `,
         containerClassName
       )}
-      style={{
-        borderRadius: borderRadius,
-      }}
       {...otherProps}
     >
-      <div className="absolute inset-0" style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}>
+      <div className={`absolute inset-0 rounded-${borderRadius}`}>
         <MovingBorder duration={duration} rx="30%" ry="30%">
           <div
             className={cn(
@@ -53,12 +50,9 @@ export function Button({
 
       <div
         className={cn(
-          'relative bg-slate-900/[0.8] border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-sm antialiased',
+          `relative bg-slate-900/[0.8] border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-sm antialiased rounded-${borderRadius}`,
           className
         )}
-        style={{
-          borderRadius: `calc(${borderRadius} * 0.96)`,
-        }}
       >
         {children}
       </div>
@@ -108,13 +102,7 @@ export const MovingBorder = ({
         <rect fill="none" width="100%" height="100%" rx={rx} ry={ry} ref={pathRef} />
       </svg>
       <motion.div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          display: 'inline-block',
-          transform,
-        }}
+        className={`absolute top-0 left-0 inline-block ${transform}`}
       >
         {children}
       </motion.div>

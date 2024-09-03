@@ -2,8 +2,7 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { FaBars } from 'react-icons/fa6'
 
 const Navigation = ({ locale, trans }: { locale: string; trans: any }) => {
   const [menuCollapsed, setMenuCollapsed] = useState(true)
@@ -14,22 +13,22 @@ const Navigation = ({ locale, trans }: { locale: string; trans: any }) => {
   return (
     <nav className={'flex-1 flex items-start'}>
       <button onClick={toggleMenu} className="block lg:hidden pr-4">
-        <FontAwesomeIcon icon={faBars} />
+        <FaBars />
       </button>
       <ul
         className={`${menuCollapsed ? 'hidden' : 'mb-4'} lg:flex lg:flex-row flex-col text-xl font-bold flex-wrap items-center justify-center gap-10 capitalize`}
       >
         <li>
-          <Link href={`/${locale}`}>{trans.home}</Link>
+          <Link href={`/${locale}`} aria-label={trans.home}>{trans.home}</Link>
         </li>
         <li>
-          <Link href={`/${locale}/pages/about`}>{trans.company}</Link>
+          <Link href={`/${locale}/pages/about`} aria-label={trans.company}>{trans.company}</Link>
         </li>
         <li>
-          <Link href={`/${locale}/products`}>{trans.products}</Link>
+          <Link href={`/${locale}/products`} aria-label={trans.products}>{trans.products}</Link>
         </li>
         <li>
-          <Link href="#">{trans.contact}</Link>
+          <Link href="#" aria-label={trans.contact}>{trans.contact}</Link>
         </li>
       </ul>
     </nav>

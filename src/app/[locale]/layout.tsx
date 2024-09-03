@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { fetchTranslations } from '@/app/api/translationsFetcher'
+import { headers } from 'next/headers'
 import Header from '@/components/partials/Header'
 import Footer from '@/components/partials/Footer'
 import './globals.css'

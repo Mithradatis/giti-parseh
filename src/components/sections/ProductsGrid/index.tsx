@@ -1,10 +1,20 @@
 'use client'
 
-import Image from 'next/image'
-import { GlareCard } from '@/components/ui/glare-card'
 import Link from 'next/link'
+import OptimizedImage from '@/components/elements/OptimizedImage'
+import { GlareCard } from '@/components/ui/glare-card'
 
-const ProductsGrid = ({ items, locale, trans }: { items: any; locale: string; trans: any }) => {
+const ProductsGrid = (
+  { 
+    items, 
+    locale, 
+    trans 
+  }: { 
+    items: any; 
+    locale: string; 
+    trans: any 
+  }
+) => {
   return (
     <>
       <h3 className={'font-bold text-3xl text-center mb-2'}>{trans.products}</h3>
@@ -16,9 +26,10 @@ const ProductsGrid = ({ items, locale, trans }: { items: any; locale: string; tr
             key={index}
             href={`${locale}/products/${item.attributes.slug}`}
             className={'w-full'}
+            aria-label={item.attributes.title}
           >
             <GlareCard className="flex flex-col items-center justify-center w-full">
-              <Image
+              <OptimizedImage
                 quality={100}
                 width={400}
                 height={400}

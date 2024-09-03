@@ -2,7 +2,7 @@ import { fetcher } from '@/app/api/fetcher'
 import { fetchTranslations } from '@/app/api/translationsFetcher'
 import { renderContent } from '@/lib/utils'
 import Breadcrumb from '@/components/elements/breadcrumb'
-import Image from 'next/image'
+import OptimizedImage from '@/components/elements/OptimizedImage'
 
 const Product = async ({ params }: { params: any }) => {
   const { data } = await fetcher(
@@ -21,7 +21,7 @@ const Product = async ({ params }: { params: any }) => {
         </div>
       </div>
       <div className={'container p-8 mx-auto text-lg'}>
-        <Image
+        <OptimizedImage
           width={300}
           height={300}
           src={`${process.env.API_URL}${data.attributes.image.data.attributes.url}`}

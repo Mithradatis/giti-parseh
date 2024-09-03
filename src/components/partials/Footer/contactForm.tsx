@@ -4,6 +4,7 @@ const ContactForm = ({ trans }: { trans: any }) => {
   return (
     <div className={'flex md:flex-nowrap flex-wrap gap-4'}>
       <input
+        id="subscriber-email-address"
         className={'flex-1 border-dashed border-2 border-slate-400 p-4 rounded-xl'}
         type="email"
         placeholder={`${capitalize(trans.email_address)}`}

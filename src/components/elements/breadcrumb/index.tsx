@@ -2,8 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { FaChevronRight } from 'react-icons/fa6'
+import { FaHome } from 'react-icons/fa'
 
 const Breadcrumb = ({ trans }: { trans: any }) => {
   const pathname = usePathname()
@@ -16,9 +16,9 @@ const Breadcrumb = ({ trans }: { trans: any }) => {
     <nav className="flex px-5 py-3 text-gray-700">
       <ol className="inline-flex items-center space-x-1">
         <li className="inline-flex items-center">
-          <Link href="/">
+          <Link href="/" aria-label="Home">
             <span className="text-gray-700 hover:text-blue-600 flex items-center">
-              <FontAwesomeIcon icon={faHome} className="mx-2" />
+              <FaHome className="mx-2" />
               {trans.home}
             </span>
           </Link>
@@ -32,8 +32,8 @@ const Breadcrumb = ({ trans }: { trans: any }) => {
             <li key={index} className="inline-flex items-center">
               {!isLast ? (
                 <>
-                  <FontAwesomeIcon icon={faChevronRight} className="mx-2 text-gray-400" />
-                  <Link href={href}>
+                  <FaChevronRight className="mx-2 text-gray-400" />
+                  <Link href={href} aria-label={trans[name] ? trans[name] : name}>
                     <span className="text-gray-700 hover:text-blue-600">
                       {trans[name] ? trans[name] : name}
                     </span>
@@ -41,7 +41,7 @@ const Breadcrumb = ({ trans }: { trans: any }) => {
                 </>
               ) : (
                 <>
-                  <FontAwesomeIcon icon={faChevronRight} className="mx-2 text-gray-400" />
+                  <FaChevronRight className="mx-2 text-gray-400" />
                   <span className="text-gray-400">{trans[name] ? trans[name] : name}</span>
                 </>
               )}

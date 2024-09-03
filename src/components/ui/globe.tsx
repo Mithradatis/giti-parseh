@@ -1,4 +1,5 @@
 'use client'
+
 import { useEffect, useRef, useState } from 'react'
 import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from 'three'
 import ThreeGlobe from 'three-globe'
@@ -186,7 +187,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     globeRef.current
       .pointsData(data)
       .pointColor((e) => (e as { color: string }).color)
-      .pointsMerge(true)
+      // .pointsMerge(true)
       .pointAltitude(0.0)
       .pointRadius(2)
 

@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const {parsed: localEnv} =donEnv.config({
+const { parsed: localEnv } = donEnv.config({
   path: `./.env.${process.env.NODE_ENV}`
 })
 
@@ -18,7 +18,16 @@ const nextConfig = {
     defaultLocale: 'en-US',
   },
   images: {
-    domains: [process.env.NEXT_PUBLIC_DOMAINS],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: process.env.NEXT_PUBLIC_DOMAINS,
+      },
+      {
+        protocol: 'http',
+        hostname: process.env.NEXT_PUBLIC_DOMAINS,
+      },
+    ]
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
@@ -39,8 +48,11 @@ const nextConfig = {
       },
     ];
   },
-  webpack: (config) => {
+  webpack: (config, { dev, isServer }) => {
     config.resolve.alias.canvas = false
+    if (!dev && !isServer) {
+      config.devtool = 'source-map';
+    }
 
     return config
   },
