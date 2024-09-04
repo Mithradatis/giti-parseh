@@ -19,16 +19,24 @@ const Navigation = ({ locale, trans }: { locale: string; trans: any }) => {
         className={`${menuCollapsed ? 'hidden' : 'mb-4'} lg:flex lg:flex-row flex-col text-xl font-bold flex-wrap items-center justify-center gap-10 capitalize`}
       >
         <li>
-          <Link href={`/${locale}`} aria-label={trans.home}>{trans.home}</Link>
+          <Link href={`/${locale}`} aria-label={trans.home}>
+            {trans.home}
+          </Link>
         </li>
         <li>
-          <Link href={`/${locale}/pages/about`} aria-label={trans.company}>{trans.company}</Link>
+          <Link href={`/${locale}/pages/about`} aria-label={trans.company}>
+            {trans.company}
+          </Link>
         </li>
         <li>
-          <Link href={`/${locale}/products`} aria-label={trans.products}>{trans.products}</Link>
+          <Link href={`/${locale}/products`} aria-label={trans.products}>
+            {trans.products}
+          </Link>
         </li>
         <li>
-          <Link href="#" aria-label={trans.contact}>{trans.contact}</Link>
+          <Link href="#" aria-label={trans.contact}>
+            {trans.contact}
+          </Link>
         </li>
       </ul>
     </nav>

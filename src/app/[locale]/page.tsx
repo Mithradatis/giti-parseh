@@ -29,15 +29,16 @@ export default async function Home({ params }: { params: { locale: string } }) {
     <div className={'container md:px-8 md:pb-8 px-6'}>
       {HeroContent && (
         <Suspense fallback={null}>
-          <Hero 
-            content={HeroContent.data} 
-            trans={translation} 
-          />
+          <Hero content={HeroContent.data} locale={params.locale} trans={translation} />
         </Suspense>
       )}
       {inspiration && quickAccessItems && (
         <Suspense fallback={null}>
-          <QuickAccess inspiration={inspiration.data} items={quickAccessItems.data} />
+          <QuickAccess
+            inspiration={inspiration.data}
+            locale={params.locale}
+            items={quickAccessItems.data}
+          />
         </Suspense>
       )}
       {productsGrid.data.length > 0 && (
@@ -65,10 +66,7 @@ export default async function Home({ params }: { params: { locale: string } }) {
       )}
       {GlobalTrade && (
         <Suspense fallback={null}>
-          <Branches
-            description={GlobalTrade.data}
-            trans={translation}
-          />
+          <Branches description={GlobalTrade.data} trans={translation} />
         </Suspense>
       )}
     </div>

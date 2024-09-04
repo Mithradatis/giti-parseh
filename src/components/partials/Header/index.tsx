@@ -18,18 +18,23 @@ const Header = ({ locale, trans }: { locale: string; trans: any }) => {
         }
       >
         <div className={'flex items-center justify-center gap-4 md:mb-0 mb-6'} id="social-box">
-          <Link href={currentPath.replace(`/${locale}`, `/en`)} aria-label="Switch to English Language">EN</Link>
-          <Link href={currentPath.replace(`/${locale}`, `/fa`)} aria-label="Switch to Persian Language">FA</Link>
+          <Link
+            href={currentPath.replace(`/${locale}`, `/en`)}
+            aria-label="Switch to English Language"
+          >
+            EN
+          </Link>
+          <Link
+            href={currentPath.replace(`/${locale}`, `/fa`)}
+            aria-label="Switch to Persian Language"
+          >
+            FA
+          </Link>
           <Social />
         </div>
         <div className={'flex items-end justify-center md:mb-0 mb-6 gap-2'}>
-          <OptimizedImage
-            width={75}
-            src={Logo}
-            alt={"Logo"}
-            className={'mx-2'}
-          />
-          <div className={""}>
+          <OptimizedImage width={75} src={Logo} alt={'Logo'} className={'mx-2'} />
+          <div className={''}>
             <h1 className={'text-3xl capitalize'}>{trans.website_title}</h1>
             <h2 className={'capitalize'}>{trans.website_subtitle}</h2>
           </div>
@@ -42,7 +47,7 @@ const Header = ({ locale, trans }: { locale: string; trans: any }) => {
             placeholder={trans.search}
           />
           <div className="w-[20px] text-sm absolute bottom-2 ltr:right-4 rtl:left-4 text-slate-400 pointer-events-none">
-            <FaSearch size={"24"} />
+            <FaSearch size={'24'} />
           </div>
         </div>
       </div>
@@ -58,9 +63,7 @@ const Header = ({ locale, trans }: { locale: string; trans: any }) => {
             {`${trans.login} / ${trans.register}`}
           </Link>
           <Link href="#" aria-label="Shopping Cart">
-            <FaCartShopping
-              size={"24"}
-            />
+            <FaCartShopping size={'24'} />
           </Link>
         </div>
       </div>

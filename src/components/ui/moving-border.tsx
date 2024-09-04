@@ -101,9 +101,7 @@ export const MovingBorder = ({
       >
         <rect fill="none" width="100%" height="100%" rx={rx} ry={ry} ref={pathRef} />
       </svg>
-      <motion.div
-        className={`absolute top-0 left-0 inline-block ${transform}`}
-      >
+      <motion.div className={`absolute top-0 left-0 inline-block ${transform}`}>
         {children}
       </motion.div>
     </>

@@ -93,9 +93,9 @@ const config = {
         '.perspective-1000': {
           perspective: '1000px',
         },
-      };
+      }
 
-      addUtilities(newUtilities);
+      addUtilities(newUtilities)
     },
   ],
 } satisfies Config

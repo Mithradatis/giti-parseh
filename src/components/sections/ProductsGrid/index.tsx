@@ -4,17 +4,7 @@ import Link from 'next/link'
 import OptimizedImage from '@/components/elements/OptimizedImage'
 import { GlareCard } from '@/components/ui/glare-card'
 
-const ProductsGrid = (
-  { 
-    items, 
-    locale, 
-    trans 
-  }: { 
-    items: any; 
-    locale: string; 
-    trans: any 
-  }
-) => {
+const ProductsGrid = ({ items, locale, trans }: { items: any; locale: string; trans: any }) => {
   return (
     <>
       <h3 className={'font-bold text-3xl text-center mb-2'}>{trans.products}</h3>

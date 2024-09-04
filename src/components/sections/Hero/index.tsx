@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 import { fetcher } from '@/app/api/fetcher'
 import { renderContent } from '@/lib/utils'
 
-const Hero = ({ content, trans }: { content: any; trans: any }) => {
+const Hero = ({ content, locale, trans }: { content: any; locale: string; trans: any }) => {
   const [images, setImages] = useState<HeroSliderImage[]>([])
   useEffect(() => {
     const getSlides = async () => {
@@ -15,12 +15,10 @@ const Hero = ({ content, trans }: { content: any; trans: any }) => {
       const gallery: any = await fetcher(`${process.env.API_URL}/api/hero-sliders?populate=image`)
       if (gallery?.data?.length > 0) {
         await gallery.data.forEach((slide: any) => {
-          slides.push(
-            {
-              src: `${process.env.API_URL}${slide.attributes.image?.data?.attributes?.url || ''}`,
-              alt: slide.attributes.title || ''
-            }
-          )
+          slides.push({
+            src: `${process.env.API_URL}${slide.attributes.image?.data?.attributes?.url || ''}`,
+            alt: slide.attributes.title || '',
+          })
         })
       }
 
@@ -32,11 +30,7 @@ const Hero = ({ content, trans }: { content: any; trans: any }) => {
   return (
     images.length > 0 && (
       <>
-        <ImagesSlider 
-          className="h-[450px] rounded-3xl" 
-          images={images} 
-          overlay={true}
-        >
+        <ImagesSlider className="h-[450px] rounded-3xl" images={images} overlay={true}>
           <motion.div
             initial={{
               opacity: 0,
@@ -55,7 +49,7 @@ const Hero = ({ content, trans }: { content: any; trans: any }) => {
               {renderContent(content.attributes.content, 'text-center')}
             </motion.div>
             <Link
-              href="products"
+              href={`${locale}`}
               aria-label="products"
               className="px-4 py-2 backdrop-blur-sm border bg-emerald-300/10 border-emerald-500/20 text-white mx-auto text-center rounded-full relative mt-4"
             >
@@ -77,9 +71,11 @@ const Hero = ({ content, trans }: { content: any; trans: any }) => {
             }
           >
             <div className={'md:flex-1 flex-auto'}>
-              <label htmlFor="product-type" className={"sr-only"}>Select Product Type</label>
+              <label htmlFor="product-type" className={'sr-only'}>
+                Select Product Type
+              </label>
               <select
-                defaultValue={"default"}
+                defaultValue={'default'}
                 id="product-type"
                 aria-labelledby="product-type"
                 className="font-bold h-12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -92,9 +88,11 @@ const Hero = ({ content, trans }: { content: any; trans: any }) => {
               </select>
             </div>
             <div className={'md:flex-1 flex-auto'}>
-            <label htmlFor="product-material" className={"sr-only"}>Select Product Material</label>
+              <label htmlFor="product-material" className={'sr-only'}>
+                Select Product Material
+              </label>
               <select
-                defaultValue={"default"}
+                defaultValue={'default'}
                 id="product-material"
                 aria-labelledby="product-material"
                 className="font-bold h-12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -107,9 +105,11 @@ const Hero = ({ content, trans }: { content: any; trans: any }) => {
               </select>
             </div>
             <div className={'md:flex-1 flex-auto'}>
-            <label htmlFor="product-color" className={"sr-only"}>Select Product Color</label>
+              <label htmlFor="product-color" className={'sr-only'}>
+                Select Product Color
+              </label>
               <select
-                defaultValue={"default"}
+                defaultValue={'default'}
                 id="product-color"
                 aria-labelledby="product-color"
                 className="font-bold h-12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

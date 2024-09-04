@@ -1,7 +1,15 @@
 import OptimizedImage from '@/components/elements/OptimizedImage'
 import Link from 'next/link'
 
-const QuickAccess = ({ inspiration, items }: { inspiration: any; items: any }) => {
+const QuickAccess = ({
+  inspiration,
+  locale,
+  items,
+}: {
+  inspiration: any
+  locale: string
+  items: any
+}) => {
   return (
     <div className={'flex md:flex-nowrap flex-wrap items-end py-12 gap-12'}>
       <div className={'py-8'}>
@@ -10,12 +18,7 @@ const QuickAccess = ({ inspiration, items }: { inspiration: any; items: any }) =
       </div>
       <div className={'flex md:flex-nowrap flex-wrap items-center justify-center gap-8'}>
         {items.map((item: any) => (
-          <Link 
-            key={item.id} 
-            href="#" 
-            className={'group'} 
-            aria-label={item.attributes.title}
-          >
+          <Link key={item.id} href="#" className={'group'} aria-label={item.attributes.title}>
             <div className={'relative w-full overflow-hidden'}>
               <OptimizedImage
                 className={'rounded-2xl'}

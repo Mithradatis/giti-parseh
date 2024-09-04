@@ -5,16 +5,16 @@ const Social = () => {
   return (
     <div className={'flex items-center gap-4'}>
       <Link href={'#'} aria-label="Facebook">
-        <FaFacebook size={"24"} />
+        <FaFacebook size={'24'} />
       </Link>
       <Link href={'#'} aria-label="Twitter">
-        <FaXTwitter size={"24"} />
+        <FaXTwitter size={'24'} />
       </Link>
       <Link href={'#'} aria-label="Linkedin">
-        <FaLinkedin size={"24"} />
+        <FaLinkedin size={'24'} />
       </Link>
       <Link href={'#'} aria-label="Instagram">
-        <FaInstagram size={"24"} />
+        <FaInstagram size={'24'} />
       </Link>
     </div>
   )

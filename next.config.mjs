@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const { parsed: localEnv } = donEnv.config({
-  path: `./.env.${process.env.NODE_ENV}`
+  path: `./.env.${process.env.NODE_ENV}`,
 })
 
 /** @type {import('next').NextConfig} */
@@ -27,7 +27,7 @@ const nextConfig = {
         protocol: 'http',
         hostname: process.env.NEXT_PUBLIC_DOMAINS,
       },
-    ]
+    ],
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
@@ -46,12 +46,12 @@ const nextConfig = {
         destination: '/en',
         permanent: true,
       },
-    ];
+    ]
   },
   webpack: (config, { dev, isServer }) => {
     config.resolve.alias.canvas = false
     if (!dev && !isServer) {
-      config.devtool = 'source-map';
+      config.devtool = 'source-map'
     }
 
     return config
