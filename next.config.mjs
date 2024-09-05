@@ -1,5 +1,6 @@
 import path from 'path'
 import donEnv from 'dotenv'
+import bundleAnalyzer from '@next/bundle-analyzer'
 import { fileURLToPath } from 'url'
 
 // Get the directory name of the current module
@@ -8,6 +9,10 @@ const __dirname = path.dirname(__filename)
 
 const { parsed: localEnv } = donEnv.config({
   path: `./.env.${process.env.NODE_ENV}`,
+})
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
 })
 
 /** @type {import('next').NextConfig} */
@@ -48,6 +53,19 @@ const nextConfig = {
       },
     ]
   },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-cache, must-revalidate, max-age=0',
+          },
+        ],
+      },
+    ];
+  },
   webpack: (config, { dev, isServer }) => {
     config.resolve.alias.canvas = false
     if (!dev && !isServer) {
@@ -58,4 +76,4 @@ const nextConfig = {
   },
 }
 
-export default nextConfig
+export default withBundleAnalyzer(nextConfig)

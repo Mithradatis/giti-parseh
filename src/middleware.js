@@ -25,7 +25,7 @@ export function middleware(request) {
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
   const cspHeader = `
     default-src 'self' ${process.env.NEXT_PUBLIC_API_URL};
-    script-src 'self' ${process.env.NEXT_PUBLIC_API_URL} 'nonce-${nonce}' 'strict-dynamic';
+    script-src 'self' 'unsafe-eval' ${process.env.NEXT_PUBLIC_API_URL} 'nonce-${nonce}' 'strict-dynamic';
     style-src 'self' 'nonce-${nonce}';
     img-src 'self' ${process.env.NEXT_PUBLIC_API_URL} blob: data:;
     font-src 'self';

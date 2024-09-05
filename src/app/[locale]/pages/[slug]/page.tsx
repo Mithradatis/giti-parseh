@@ -1,7 +1,7 @@
 import { fetcher } from '@/app/api/fetcher'
 import { fetchTranslations } from '@/app/api/translationsFetcher'
 import { renderContent } from '@/lib/utils'
-import Breadcrumb from '@/components/elements/breadcrumb'
+import Breadcrumb from '@/components/elements/Breadcrumb'
 
 const Page = async ({ params }: { params: any }) => {
   const { data } = await fetcher(

@@ -1,6 +1,6 @@
 import { fetcher } from '@/app/api/fetcher'
 import { fetchTranslations } from '@/app/api/translationsFetcher'
-import Breadcrumb from '@/components/elements/breadcrumb'
+import Breadcrumb from '@/components/elements/Breadcrumb'
 
 const Products = async ({ params }: { params: any }) => {
   const translation = await fetchTranslations(params.locale)
