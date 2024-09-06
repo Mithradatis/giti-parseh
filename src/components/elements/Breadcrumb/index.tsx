@@ -5,7 +5,15 @@ import { usePathname } from 'next/navigation'
 import { FaChevronRight } from 'react-icons/fa6'
 import { FaHome } from 'react-icons/fa'
 
-const Breadcrumb = ({ trans }: { trans: any }) => {
+const Breadcrumb = (
+  {
+    locale, 
+    trans
+  }: {
+    locale: string
+    trans: any
+  }
+) => {
   const pathname = usePathname()
   const pathArray = pathname
     .split('/')
@@ -16,7 +24,7 @@ const Breadcrumb = ({ trans }: { trans: any }) => {
     <nav className="flex px-5 py-3 text-gray-700">
       <ol className="inline-flex items-center space-x-1">
         <li className="inline-flex items-center">
-          <Link href="/" aria-label="Home">
+          <Link href={`/${locale}`} aria-label="Home">
             <span className="text-gray-700 hover:text-blue-600 flex items-center">
               <FaHome className="mx-2" />
               {trans.home}
@@ -25,7 +33,7 @@ const Breadcrumb = ({ trans }: { trans: any }) => {
         </li>
         {pathArray.map((path, index) => {
           const isLast = index === pathArray.length - 1
-          const href = `/${pathArray.slice(0, index + 1).join('/')}`
+          const href = `/${locale}/${pathArray.slice(0, index + 1).join('/')}`
           const name = path.replace(/-/g, ' ')
 
           return (

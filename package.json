@@ -13,6 +13,7 @@
     "@next/bundle-analyzer": "^14.2.7",
     "@react-three/drei": "^9.111.3",
     "@react-three/fiber": "^8.17.6",
+    "@splidejs/react-splide": "^0.7.12",
     "child_process": "^1.0.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

@@ -46,8 +46,8 @@ const Header = ({ locale, trans }: { locale: string; trans: any }) => {
             type="text"
             placeholder={trans.search}
           />
-          <div className="w-[20px] text-sm absolute bottom-2 ltr:right-4 rtl:left-4 text-slate-400 pointer-events-none">
-            <FaSearch size={'24'} />
+          <div className="w-[20px] text-sm absolute bottom-3 ltr:right-3 rtl:left-4 text-slate-400 pointer-events-none">
+            <FaSearch size={'16'} />
           </div>
         </div>
       </div>

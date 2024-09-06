@@ -23,11 +23,12 @@ export function middleware(request) {
   }
 
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
+  const isDevelopment = process.env.NODE_ENV === 'development'
   const cspHeader = `
     default-src 'self' ${process.env.NEXT_PUBLIC_API_URL};
-    script-src 'self' 'unsafe-eval' ${process.env.NEXT_PUBLIC_API_URL} 'nonce-${nonce}' 'strict-dynamic';
-    style-src 'self' 'nonce-${nonce}';
-    img-src 'self' ${process.env.NEXT_PUBLIC_API_URL} blob: data:;
+    script-src 'self' ${ isDevelopment ? "'unsafe-eval'" : "" } ${process.env.NEXT_PUBLIC_API_URL} 'nonce-${nonce}' 'strict-dynamic';
+    style-src 'self' ${process.env.NEXT_PUBLIC_API_URL} 'nonce-${nonce}';
+    img-src 'self' giti-parseh.s3.ap-south-1.amazonaws.com blob: data:;
     font-src 'self';
     object-src 'none';
     base-uri 'self';

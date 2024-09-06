@@ -16,7 +16,7 @@ const Hero = ({ content, locale, trans }: { content: any; locale: string; trans:
       if (gallery?.data?.length > 0) {
         await gallery.data.forEach((slide: any) => {
           slides.push({
-            src: `${process.env.API_URL}${slide.attributes.image?.data?.attributes?.url || ''}`,
+            src: slide.attributes.image?.data?.attributes?.url || '',
             alt: slide.attributes.title || '',
           })
         })

@@ -20,5 +20,8 @@
   "email_address": "email address",
   "footer_contact_form_title": "Let’s Stay in Touch",
   "footer_contact_form_description": "Sign up for our emails to receive the very latest and best in tile design straight to your inbox.",
-  "footer_contact_form_join_button": "join"
+  "footer_contact_form_join_button": "join",
+  "product_type": "type",
+  "product_material": "material",
+  "color": "color"
 }

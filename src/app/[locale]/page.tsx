@@ -16,11 +16,11 @@ export default async function Home({ params }: { params: { locale: string } }) {
     `${apiUrl}/quick-accesses?populate=*&sort=order&locale=${params.locale}`
   )
   const productsGrid: any = await fetcher(
-    `${apiUrl}/products-grids?populate[products][populate]=image&locale=${params.locale}`
+    `${apiUrl}/products-grids?populate[products][populate]=image&pagnation[limit]=8&locale=${params.locale}`
   )
   const ExploreProducts: any = await fetcher(`${apiUrl}/explore?locale=${params.locale}`)
   const ExploreProductsItems: any = await fetcher(
-    `${apiUrl}/explore-designs?populate[products][populate]=image&pagnation[limit]=8&locale=${params.locale}`
+    `${apiUrl}/explore-designs?populate[products][populate]=image&locale=${params.locale}`
   )
   const GlobalTrade: any = await fetcher(`${apiUrl}/global-trade?locale=${params.locale}`)
   const translation: any = await fetchTranslations(params.locale)

@@ -20,5 +20,8 @@
   "email_address": "نشانی ایمیل",
   "footer_contact_form_title": "با ما در تماس باشید",
   "footer_contact_form_description": "اطلاعات تماس خود را وارد کنید تا لیست آخرین محصولات را در ایمیل خود دریافت کنید",
-  "footer_contact_form_join_button": "بپیوندید"
+  "footer_contact_form_join_button": "بپیوندید",
+  "product_type": "نوع محصول",
+  "product_material": "ماتریال",
+  "color": "رنگ"
 }

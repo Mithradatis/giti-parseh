@@ -23,16 +23,7 @@ const nextConfig = {
     defaultLocale: 'en-US',
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: process.env.NEXT_PUBLIC_DOMAINS,
-      },
-      {
-        protocol: 'http',
-        hostname: process.env.NEXT_PUBLIC_DOMAINS,
-      },
-    ],
+    domains: process.env.NEXT_PUBLIC_DOMAINS.split(',').map(domain => domain.trim()),
   },
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
@@ -42,6 +33,7 @@ const nextConfig = {
     APP_DESCRIPTION: process.env.NEXT_PUBLIC_APP_DESCRIPTION,
     API_URL: process.env.NEXT_PUBLIC_APP_URL,
     API_URL: process.env.NEXT_PUBLIC_API_URL,
+    CDN_URL: process.env.NEXT_PUBLIC_CDN_URL,
   },
   pageExtensions: ['tsx', 'js'],
   async redirects() {

@@ -46,20 +46,26 @@ const Footer = ({ locale, trans }: { locale: string; trans: any }) => {
               <OptimizedImage width={50} src={Logo} alt="Logo" className={'mx-2 mb-2'} />
               <span className={'text-4xl capitalize'}>{trans.website_title}</span>
             </div>
-            <div className={'flex items-center mb-4'}>
-              <FaPhone className={'px-2'} />
-              <p>(+91)8625866608</p>
+            <div className={'flex items-start mb-4'}>
+              <FaPhone className={'px-2'} size={'32'} />
+              <div className={"block"}>
+                <p>(+91)7030443963</p>
+                <p>(+98)9120409723</p>
+                <p>(+98)9163971510</p>
+              </div>
             </div>
             <div className={'flex items-center mb-4'}>
-              <FaAt className={'px-2'} />
+              <FaAt className={'px-2'} size={'32'} />
               <Link href="mailto:info@giti-parseh.com">info@giti-parseh.com</Link>
             </div>
             <div className={'flex items-start mb-4'}>
-              <FaLocationDot className={'px-2'} />
+              <FaLocationDot className={'px-2'} size={'32'} />
               <p>
-                No. 501, Gloria Apt, Baner
+                No 304 , camellia complex , Baner Pashan link road
                 <br />
                 Pune 411045
+                <br />
+                Maharashtra, India
               </p>
             </div>
           </div>
