@@ -23,7 +23,7 @@ const ExploreProduct = ({
           items.map((item: any, index: number) => (
             <Link
               key={item.id}
-              href={`#`}
+              href={`${locale}/products/${item.attributes.slug}`}
               className={'group w-full'}
               aria-label={item.attributes.title}
             >

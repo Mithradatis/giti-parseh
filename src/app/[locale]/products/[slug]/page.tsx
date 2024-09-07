@@ -76,11 +76,14 @@ const Product = async ({ params }: { params: any }) => {
             </p>
           </aside>
         </div>
-        <div className={'flex items-center justify-center'}>
-          <ProductSlider
-            items={data.attributes.gallery.data || []}
-          />
-        </div>
+        {
+          data.attributes.gallery.data &&
+          <div className={'flex items-center justify-center'}>
+            <ProductSlider
+              items={data.attributes.gallery.data || []}
+            />
+          </div>
+        }
       </div>
     </>
   )
