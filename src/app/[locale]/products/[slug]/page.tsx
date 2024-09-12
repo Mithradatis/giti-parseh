@@ -1,9 +1,11 @@
 import { fetcher } from '@/app/api/fetcher'
 import { fetchTranslations } from '@/app/api/translationsFetcher'
 import { renderContent } from '@/lib/utils'
+import { Suspense, lazy } from 'react'
 import Breadcrumb from '@/components/elements/Breadcrumb'
-import ProductTile from '@/components/elements/ProductTile'
-import ProductSlider from '@/components/elements/ProductSlider'
+
+const ProductTile = lazy(() => import('@/components/elements/ProductTile'))
+const ProductSlider = lazy(() => import('@/components/elements/ProductSlider'))
 
 const Product = async ({ params }: { params: any }) => {
   const { data } = await fetcher(
@@ -25,10 +27,12 @@ const Product = async ({ params }: { params: any }) => {
         </div>
       </div>
       <div className={'container p-8 mx-auto text-lg'}>
-        <ProductTile
-          locale={params.locale}
-          item={data}
-        />
+        <Suspense fallback={null}>
+          <ProductTile
+            locale={params.locale}
+            item={data}
+          />
+        </Suspense>
         <div className={'py-12 flex flex-row flex-wrap items-start md:gap-8 gap-4'}>
           <article className={"flex-1"}>
             {
@@ -79,9 +83,11 @@ const Product = async ({ params }: { params: any }) => {
         {
           data.attributes.gallery.data &&
           <div className={'flex items-center justify-center'}>
-            <ProductSlider
-              items={data.attributes.gallery.data || []}
-            />
+            <Suspense fallback={null}>
+              <ProductSlider
+                items={data.attributes.gallery.data || []}
+              />
+            </Suspense>
           </div>
         }
       </div>

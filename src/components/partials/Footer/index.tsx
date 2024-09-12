@@ -11,7 +11,7 @@ const Footer = ({ locale, trans }: { locale: string; trans: any }) => {
       <div className={'md:py-12 py-4'}>
         <div className={'container flex md:flex-row flex-col flex-wrap'}>
           <div className={'md:w-5/12 w-full py-4'}>
-            <h3 className={'text-3xl font-bold mb-4'}>{trans.footer_contact_form_title}</h3>
+            <p className={'text-3xl font-bold mb-4'}>{trans.footer_contact_form_title}</p>
             <p className={'mb-4'}>{trans.footer_contact_form_description}</p>
             <ContactForm trans={trans} />
           </div>
@@ -56,7 +56,7 @@ const Footer = ({ locale, trans }: { locale: string; trans: any }) => {
             </div>
             <div className={'flex items-center mb-4'}>
               <FaAt className={'px-2'} size={'32'} />
-              <Link href="mailto:info@giti-parseh.com">info@giti-parseh.com</Link>
+              <Link href="mailto:info@emcparseh.com">info@emcparseh.com</Link>
             </div>
             <div className={'flex items-start mb-4'}>
               <FaLocationDot className={'px-2'} size={'32'} />
